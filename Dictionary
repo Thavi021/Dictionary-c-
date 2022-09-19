@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Dictionary
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("This is the first fucking line..");
+
+
+            //create a dictionary to store employees containing their staff numbers 
+
+            Dictionary<int, string> emp = new Dictionary<int, string>();
+
+            //add items
+            emp.Add(10, "Thaveshan Naidoo");
+            emp.Add(11, "Dress Right Official");
+            emp.Add(12, "Extreme wheels n tyre");
+            emp.Add(13, "Ground. art . suspension");
+            emp.Add(14, "Airlux Distro");
+
+            //Display the items
+            foreach (KeyValuePair<int, string> item in emp)
+            {
+                Console.WriteLine(item);
+                Console.WriteLine($"Staff Number : {item.Key}" + $"- Name: {item.Value}");
+                Console.WriteLine(item.Value);
+            }
+            //Display the items
+            foreach (string item in emp.Values)
+            {
+                Console.WriteLine(item);
+            }
+
+            //Update tyhe value 
+            emp[13] = "Ground.Art.Suspension";
+
+            //access the iteme
+            Console.WriteLine(emp[13]);
+            Console.WriteLine(emp.ElementAt(4).Value);
+
+            //find the unkown value
+
+            string temp = emp[13];
+
+            double s, p;
+
+            getSum(8,2,out s, out p);
+
+            Console.WriteLine($"Sum: {s}, Product: {p}");
+
+
+            string result = "";
+
+            if (emp.TryGetValue(177,out result))
+            {
+                Console.WriteLine(result);
+            }
+        }
+
+        static void getSum(int v1, int v2, 
+            out double sum, out double product)
+        {
+            sum = v1 + v2;
+            product = v1 * v2;
+           // return sum;
+        }
+    }
+}
